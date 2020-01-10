@@ -5,4 +5,9 @@ WORKDIR /app
 COPY package.json .
 RUN npm install
 
+# Leave this line as a reminder for production deployments, and also in case 
+# we decide not to use docker-compose in the future. But we do not need it for
+# development as we are mounting volumes with docker-compose.
+COPY . .
+
 CMD ["yarn", "start"]
